@@ -1,0 +1,234 @@
+/* PERUSASETUKSET */
+body {
+  /* Fonttiperhe: käytetään käyttöjärjestelmän oletusfontteja (selkeä, moderni) */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #0038A8;
+  color: #f9fafb;
+  margin: 0;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* Keskitetään sivun sisältö: max 500px leveä laatikko, keskellä sivua */
+.wrapper {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* LOGO */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+}
+
+.logo {
+  max-width: 120px;
+  height: auto;
+}
+
+/* Sivun pääotsikko eli PELIN NIMI */
+h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
+
+/* Pieni seliteteksti/peliohjeet otsikon alle */
+.subtitle {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #999b9f;
+  margin-bottom: 1.5rem;
+}
+
+/* BINGO-ILMOITUS */
+/* Koko näytön peittävä tausta */
+.bingo-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85); /* Tummennettu tausta */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Varmistaa, että on kaiken päällä */
+  transition: opacity 0.3s ease;
+}
+
+/* Itse ilmoituslaatikko */
+.bingo-content {
+  background: #FFD800;
+  color: #0038A8;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(255, 216, 0, 0.5);
+  max-width: 80%;
+}
+
+.bingo-content h2 {
+  font-size: 2.5rem;
+  margin: 0.5rem 0;
+}
+
+.bingo-sparkles {
+  font-size: 2rem;
+}
+
+/* Ilmoituksen sulkemisnappi */
+#closeBanner {
+  margin-top: 1rem;
+  background: #0038A8;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.bingo-overlay.hidden {
+  display: none;
+}
+/* PELIRUUDUKKO: 4x4-bingo */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));   /* 4 saraketta, jokainen jakaa tilan tasan (1fr) */
+  gap: 0.3rem; /* Ruutujen väliin pieni rako */
+  margin-bottom: 1.5rem;
+  width: 100%;
+  align-content: start;
+}
+
+/* Yksittäinen RUUTU */
+.cell {
+  background: #2873dc;
+  color: white;
+  border-radius: 0.75rem;
+  padding: 0.1rem;
+  font-size: clamp(0.5rem, 2.7vw, 0.9rem);
+  text-align: center;
+  aspect-ratio: 1 / 1; /* Korkeus on aina sama kuin leveys */
+  letter-spacing: -0.01em; /* Tiivistää kirjainvälejä aavistuksen, helpottaa lukemista */
+  width: 100%; /* Täyttää sarakkeen leveyden */
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer; /* Näytetään osoitin, että ruutua voi klikata */
+  overflow: hidden; /* Estää tekstin valumisen ulos ruudusta */
+  word-break: break-word; /* Pakottaa pitkät sanat katkeamaan */
+  hyphens: auto; /* Tavuttaa suomea (jos selain tukee) */
+  -webkit-hyphens: auto; /* Safari-tuki */
+  -ms-hyphens: auto; /* ja vanhemmat Windows-laitteet*/
+  line-height: 1.1;       /* Tiiviimpi riviväli teksteille */
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease,
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+/* Kun ruutua klikataan, se "painuu" hieman sisään */
+.cell:active {
+  transform: scale(0.97);
+}
+
+/* VALMIS RUUTU, tehty tehtävä */
+.cell.done {
+  font-weight: 800;
+  color: #0038A8;
+  background: #55CEFD;
+}
+
+/* BINGORIVIN RUUTU */
+.cell.bingo {
+  border: 3px solid #987514 !important;
+  box-shadow: 0 0 10px rgba(237, 236, 230, 0.777);
+  z-index: 2;
+  transform: scale(1.02);
+  transition: all 0.2s ease-in-out;
+}
+
+/* OHJEITA sivuston käyttöön */
+.info {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* ARVONTA-osio */
+.email-section {
+  background: #111827;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  border: 1px solid #374151;
+}
+
+.email-section h2 {
+  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.email-section p {
+  font-size: 0.9rem;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #4b5563;
+  background: #030712;
+  color: #f9fafb;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+  margin-bottom: 0.75rem;
+}
+
+input[type="text"]::placeholder {
+  color: #6b7280;
+}
+
+button {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: 999px;
+  border: none;
+  background: #FFD800;
+  color: #111827;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+}
+
+/* Kun nappia painetaan (active-tila), se "painuu" hieman sisään */
+button:active {
+  transform: scale(0.97);
+  box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.3);
+}
+
+/* Pieni huomautusteksti alimmaisena (tietosuoja, ohjeteksti) */
+.footer-note {
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-align: center;
+  margin-top: 0.75rem;
+}

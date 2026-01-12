@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <title>BI LEZ USELESS BINGO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Lisätään favicon-kuvake -->
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="images/android-chrome-512x512.png">  
+
+  <body>
+  <div class="wrapper">
+    <div class="logo-container">
+      <img src="images/kestit_logo_vaalensininen.png" alt="Kestit logo" class="logo">
+    </div>
+    <h1>BI LEZ USELESS -BINGO</h1>
+    <div class="subtitle">Täppää ruutu, kun tehtävä on suoritettu.</div>
+
+    <!-- Peliruudukko: JS luo ruudut tänne -->
+    <div class="grid" id="grid"></div>
+
+    <div class="info">
+      Voit sulkea selaimen ja palata myöhemmin – merkinnät pysyvät.
+    </div>
+
+    <!-- Arvontaan osallistuminen sähköpostilla -->
+    <div class="email-section">
+      <h2>Osallistu arvontaan</h2>
+      <p>
+        Jos haluat osallistua arvontaan, voit lähettää sähköpostin järjestäjälle.
+        Voittajille ilmoitetaan osoitteeseen, josta viesti on lähetetty.
+        Sähköpostiosoitettasi ei tallenneta mihinkään.
+      </p>
+      <label for="nameInput">Nimi (vapaaehtoinen):</label>
+      <input type="text" id="nameInput" placeholder="Etunimi Sukunimi" />
+
+      <button type="button" id="sendEmailBtn">
+        Lähetä sähköposti järjestäjälle
+      </button>
+
+      <div class="footer-note">
+        Puhelimesi sähköpostisovellus avautuu ja voit vielä tarkistaa viestin ennen lähettämistä.
+      </div>
+    </div>
+
+    <div id="bingoBanner" class="bingo-overlay hidden">
+      <div class="bingo-content">
+        <div class="bingo-sparkles">✨ 🎉 ✨</div>
+        <h2>BINGO!</h2>
+        <button id="closeBanner">Jatka peliä</button>
+      </div>
+    </div>
+
+  </div>
+<script src="script.js"></script>
+</body>
+</html>
+
