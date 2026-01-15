@@ -193,6 +193,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Näyttää bingo-bannerin (jos ei vielä näy).
   function showBingoBanner() {
     bingoBanner.classList.remove("hidden");
+    // Paljastetaan arvonta-osio heti kun bingo tulee
+    document.getElementById("emailSection").classList.remove("hidden");
   }
   // Piilottaa bingo-bannerin (jos se on näkyvissä).
   function hideBingoBanner() {
@@ -226,15 +228,25 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("sendEmailBtn").addEventListener("click", sendEmail);
 
   // Jos tätä klikataan, bingo-ilmoitus häviää
-  document.getElementById("closeBanner").addEventListener("click", hideBingoBanner);
+  document.getElementById("closeBanner").addEventListener("click", () => {
+    hideBingoBanner();
+    // Skrollataan pehmeästi arvonta-osioon
+    document.getElementById("emailSection").scrollIntoView({ behavior: 'smooth' });
+  });
 
   // KÄYNNISTYS
 
   const orderIds = loadOrder();   // jokaiselle laitteelle oma arvottu järjestys
   const doneIds = loadState();    // mitä tämä käyttäjä on jo tehnyt
 
-  // Jos ladataan sivu ja bingo on jo valmis, asetetaan hasShownBingo trueksi, jottei overlay hyppää heti silmille häiritsevästi
-  if (checkBingo(orderIds, doneIds)) hasShownBingoThisSession = true;
+  // Tarkistetaan sivun latauksessa: jos pelaajalla on jo bingo
+  const initialBingo = checkBingo(orderIds, doneIds);
+  if (initialBingo && initialBingo.length > 0) {
+    // Asetetaan tämä trueksi, jotta bingo-ilmoitus ei hyppää häiritsevästi esiin
+    hasShownBingoThisSession = true;
+    // Näytetään arvonta-osio
+    document.getElementById("emailSection").classList.remove("hidden");
+  }
 
   renderGrid(orderIds, doneIds);
 });
