@@ -16,6 +16,17 @@ body {
   max-width: 500px;
   margin: 0 auto;
 }
+/* Kielen vaihtaminen */
+.lang-switch {
+  text-align: right;
+  margin-bottom: 10px;
+}
+.lang-switch a {
+  color: rgb(231, 227, 227);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
 
 /* LOGO */
 .logo-container {
@@ -91,6 +102,7 @@ h1 {
   max-width: 60%;
   border-radius: 999px;
   font-weight: bold;
+  font-size: 1rem;
   cursor: pointer;
 }
 
@@ -162,79 +174,41 @@ h1 {
 .info {
   font-size: 0.85rem;
   color: #9ca3af;
-  margin-bottom: 1.5rem;
+  margin-bottom: 4rem;
   text-align: center;
 }
 
 /* ARVONTA-osio */
-.email-section {
-  background: #111827;
-  border-radius: 0.75rem;
-  padding: 1rem;
-  border: 1px solid #374151;
+.rewardSection {
+  background: #FFD800;
+  color: #0038A8;
+  padding: 1rem 1rem 1.5rem 1rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(255, 216, 0, 0.5);
+  max-width: 75%;
+  margin: 2rem auto;
 }
 
-.email-section.hidden { /*Piilotetaan aluksi*/
+.rewardSection.hidden { /*Piilotetaan aluksi*/
   display: none;
 }
 
-.email-section h2 {
-  font-size: 1.1rem;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+/* Linkin tyyli */
+.inline-link {
+  color: rgb(190, 87, 3);
+  text-decoration: underline;
+  font-weight: bold;
 }
 
-.email-section p {
-  font-size: 0.9rem;
-  margin-top: 0;
-  margin-bottom: 0.75rem;
-}
-
-label {
-  display: block;
-  font-size: 0.85rem;
-  margin-bottom: 0.25rem;
-}
-
-input[type="text"] {
-  width: 100%;
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.5rem;
-  border: 1px solid #4b5563;
-  background: #030712;
-  color: #f9fafb;
-  font-size: 0.9rem;
-  box-sizing: border-box;
-  margin-bottom: 0.75rem;
-}
-
-input[type="text"]::placeholder {
-  color: #6b7280;
-}
-
-button {
-  width: 100%;
-  padding: 0.6rem 0.75rem;
-  border-radius: 999px;
-  border: none;
-  background: #FFD800;
-  color: #111827;
-  font-weight: 600;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
-}
-
-/* Kun nappia painetaan (active-tila), se "painuu" hieman sisään */
-button:active {
-  transform: scale(0.97);
-  box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.3);
+.inline-link:hover {
+  color: #192662; /* Vaihtaa väriä kun osoittaa hiirellä */
 }
 
 /* Pieni huomautusteksti alimmaisena (tietosuoja, ohjeteksti) */
 .footer-note {
-  font-size: 0.75rem;
-  color: #6b7280;
+  font-size: 0.85rem;
+  color: #47484a;
   text-align: center;
-  margin-top: 0.75rem;
+  margin-top: 1rem;
 }
