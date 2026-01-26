@@ -205,10 +205,9 @@ h1 {
   color: #192662; /* Vaihtaa väriä kun osoittaa hiirellä */
 }
 
-/* Pieni huomautusteksti alimmaisena (tietosuoja, ohjeteksti) */
+/* Pieni huomautusteksti alimmaisena (ohjeteksti+tietosuoja) */
 .footer-note {
   font-size: 0.85rem;
   color: #47484a;
-  text-align: center;
   margin-top: 1rem;
 }
